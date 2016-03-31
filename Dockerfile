@@ -2,7 +2,7 @@ FROM exira/base:latest
 
 MAINTAINER exira.com <info@exira.com>
 
-ENV NSEDIT_VERSION=794fcb680c35546b24d12511997da5db79688784 \
+ENV NSEDIT_VERSION=794fcb680c35546b24d12511997da5db79688784
 
 RUN \
     # Install build and runtime packages
@@ -13,8 +13,8 @@ RUN \
 
     # get nsedit
     mkdir -p /var/www/public_html/ && \
-    cd /var/www/public_html/
-    git clone https://github.com/tuxis-ie/nsedit.git -v && \
+    cd /var/www/public_html/ && \
+    git clone https://github.com/tuxis-ie/nsedit.git . -v && \
     git reset ${NSEDIT_VERSION} --hard && \
 
     # add www-data user
