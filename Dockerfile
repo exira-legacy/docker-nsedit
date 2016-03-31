@@ -14,7 +14,7 @@ RUN \
     # get nsedit
     mkdir -p /var/www/public_html/ && \
     cd /var/www/public_html/ && \
-    git clone https://github.com/tuxis-ie/nsedit.git . -v && \
+    git clone --recursive https://github.com/tuxis-ie/nsedit.git . -v && \
     git reset ${NSEDIT_VERSION} --hard && \
 
     # add www-data user
