@@ -6,7 +6,7 @@ ENV NSEDIT_VERSION=794fcb680c35546b24d12511997da5db79688784
 
 RUN \
     # Install build and runtime packages
-    build_pkgs="git" && \
+    build_pkgs="git perl" && \
     apk update && \
     apk upgrade && \
     apk --update --no-cache add ${build_pkgs} && \
@@ -16,6 +16,7 @@ RUN \
     cd /var/www/public_html/ && \
     git clone --recursive https://github.com/tuxis-ie/nsedit.git . -v && \
     git reset ${NSEDIT_VERSION} --hard && \
+    git submodule update --init && \
 
     # add www-data user
     mkdir -p /home/www-data && \
